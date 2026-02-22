@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yahtzee</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h1>🎲 Yahtzee</h1>
+  <p>Gemaakt door Tim &amp; Maarten Boegheim &mdash; Alleen voor schooldoeleinden</p>
+</header>
+
+<div id="game-area">
+
+  <!-- Dice panel -->
+  <section id="dice-section">
+    <h2>Dobbelstenen</h2>
+
+    <div id="dice-container">
+      <div class="die" id="die-0" title="Klik om vast te houden">⚀</div>
+      <div class="die" id="die-1" title="Klik om vast te houden">⚀</div>
+      <div class="die" id="die-2" title="Klik om vast te houden">⚀</div>
+      <div class="die" id="die-3" title="Klik om vast te houden">⚀</div>
+      <div class="die" id="die-4" title="Klik om vast te houden">⚀</div>
+    </div>
+
+    <p id="roll-info">Klik op "Gooi" om te beginnen</p>
+    <button id="btn-roll">🎲 Gooi</button>
+    <p id="status-msg"></p>
+  </section>
+
+  <!-- Scorecard panel -->
+  <section id="scorecard-section">
+    <h2>Scorekaart</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:left">Categorie</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- Upper section -->
+        <tr class="section-header">
+          <td colspan="2">Bovenste Sectie</td>
+        </tr>
+        <tr class="clickable" id="row-ones">
+          <td class="category-name">Enen (Ones)</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-twos">
+          <td class="category-name">Tweeën (Twos)</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-threes">
+          <td class="category-name">Drieën (Threes)</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-fours">
+          <td class="category-name">Vieren (Fours)</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-fives">
+          <td class="category-name">Vijven (Fives)</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-sixes">
+          <td class="category-name">Zessen (Sixes)</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="bonus-row">
+          <td class="category-name">Bonus (≥63 → +35)</td>
+          <td class="category-score" id="upper-bonus"></td>
+        </tr>
+
+        <!-- Lower section -->
+        <tr class="section-header">
+          <td colspan="2">Onderste Sectie</td>
+        </tr>
+        <tr class="clickable" id="row-threeOfKind">
+          <td class="category-name">Drie van een soort</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-fourOfKind">
+          <td class="category-name">Vier van een soort</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-fullHouse">
+          <td class="category-name">Full House (25 pt)</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-smStraight">
+          <td class="category-name">Kleine Straat &ndash; 4 opeenvolgend (30 pt)</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-lgStraight">
+          <td class="category-name">Grote Straat &ndash; 5 opeenvolgend (40 pt)</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-yahtzee">
+          <td class="category-name">Yahtzee! (50 pt)</td>
+          <td class="category-score"></td>
+        </tr>
+        <tr class="clickable" id="row-chance">
+          <td class="category-name">Kans (Chance) &ndash; som van alles</td>
+          <td class="category-score"></td>
+        </tr>
+
+        <!-- Total -->
+        <tr class="total-row">
+          <td>Totaal</td>
+          <td id="total-score" style="text-align:right">0</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </section>
+
+</div><!-- #game-area -->
+
+<!-- Game over overlay -->
+<div id="game-over">
+  <div id="game-over-box">
+    <h2>🎉 Spel klaar!</h2>
+    <p>Jouw eindscore:</p>
+    <div id="final-score">0</div>
+    <p>Goed gespeeld!</p>
+    <button id="btn-new-game">Nieuw Spel</button>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
